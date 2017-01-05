@@ -1,9 +1,10 @@
 My custom notes on this:
 
 To use this, I recommend having the following packages globally installed:
-`npm install nodemon -g` (used for running the development environment)
-`npm install pm2 -g` (used for running the production environment)
-Without these, you won't be able to run the server using my `npm run dev` and `npm run start` shortcuts. I guess you could also install them as local development dependencies, but I think these ones are better suited to be globally installed.
+- `npm install nodemon -g` (used for running the development environment)
+- `npm install pm2 -g` (used for running the production environment)
+
+Without these, you won't be able to run the server using my `npm run dev` and `npm run start` shortcuts. I guess you could alternatively install them as local development dependencies, but I think these ones are better suited to be globally installed.
 
 To run the tasty dev environment use `npm run dev`. This runs the react app on port 3000, and the express api and other backend stuff on port 9000. Access the site through http://localhost:3000. API calls are proxied to the server on port 9000. Whenever you make a change to any file, the server will be restarted automatically. Just refresh to see your changes in action.
 
@@ -11,8 +12,7 @@ There is also a production environment, which builds everything nicely with webp
 
 All the webpack/babel and other build stuff is conveniently handled in the background by react-scripts (a dev dependency). If you want to actually modify the config for that stuff (I sure don't), then run `npm run eject`. Note that once you run this, there's no going back.
 
-The rest is the built-in documentation for the create-react-app which this project is based on.
-------
+The rest is the built-in documentation for the create-react-app which this project is based on:
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
