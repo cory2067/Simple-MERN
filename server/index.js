@@ -2,8 +2,6 @@
 
 const app = require('./app');
 
-console.log(process.env.NODE_ENV);
-
 let PORT = 9000;
 if(process.env.NODE_ENV == 'production'){
   PORT = 80;

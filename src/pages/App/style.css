@@ -22,3 +22,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.person {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+}
+
+.name {
+  font-weight: bold;
+}
