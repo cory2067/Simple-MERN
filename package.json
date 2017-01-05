@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "nodemon": "^1.11.0",
     "react-scripts": "0.8.4"
   },
   "dependencies": {
@@ -14,11 +13,10 @@
     "react-router": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "nodemon server & react-scripts start",
-    "prod": "react-scripts build && node server",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-scripts build && sudo su -c \"pm2 start process.yml\" root && echo To kill, run \\\"npm run stop\\\"",
+    "stop": "sudo su -c \"pm2 stop server\" root",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:9000"

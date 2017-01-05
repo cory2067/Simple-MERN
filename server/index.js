@@ -2,7 +2,12 @@
 
 const app = require('./app');
 
-const PORT = process.env.PORT || 9000;
+console.log(process.env.NODE_ENV);
+
+let PORT = 9000;
+if(process.env.NODE_ENV == 'production'){
+  PORT = 80;
+}
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);

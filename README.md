@@ -1,8 +1,18 @@
 My custom notes on this:
-To run the tasty dev environment use `npm run dev`. This runs the react app on port 3000, and the express api and other backend stuff on port 9000. Access the site through http://localhost:3000. API calls are proxied to the server on port 9000. 
 
-To run on production, use `npm run prod`. To do it yourself, first build the application with `npm run build`, and then run the express server using `node server`. (Unlike the dev enviroment, the react app and the API stuff will be on the same port). To run on port 80 (instead of 9000), run `export PORT=80`
+To use this, I recommend having the following packages globally installed:
+`npm install nodemon -g` (used for running the development environment)
+`npm install pm2 -g` (used for running the production environment)
+Without these, you won't be able to run the server using my `npm run dev` and `npm run start` shortcuts. I guess you could also install them as local development dependencies, but I think these ones are better suited to be globally installed.
 
+To run the tasty dev environment use `npm run dev`. This runs the react app on port 3000, and the express api and other backend stuff on port 9000. Access the site through http://localhost:3000. API calls are proxied to the server on port 9000. Whenever you make a change to any file, the server will be restarted automatically. Just refresh to see your changes in action.
+
+There is also a production environment, which builds everything nicely with webpack, and then deploys under pm2, a process manager for deploying node apps. Since I have no idea how to handle linux permissions, I'm using a really janky workaround to get everything to work. This may be changed in the future, but it works fine for now. The actual usage is very simple. Run `npm run start` to start the server, and then `npm run stop` to kill the server. It will be run in the background on 0.0.0.0:80 until you issue the stop command. Don't run the start command with sudo, or else the webpack build will explode in the future because of more permissions nonsense.
+
+All the webpack/babel and other build stuff is conveniently handled in the background by react-scripts (a dev dependency). If you want to actually modify the config for that stuff (I sure don't), then run `npm run eject`. Note that once you run this, there's no going back.
+
+The rest is the built-in documentation for the create-react-app which this project is based on.
+------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -917,7 +927,7 @@ This feature is experimental and still [has major usage issues](https://github.c
 
 ### Editor Integration
 
-If you use [Visual Studio Code](https://code.visualstudio.com), there is a [Jest extension](https://github.com/orta/vscode-jest) which works with Create React App out of the box. This provides a lot of IDE-like features while using a text editor: showing the status of a test run with potential fail messages inline, starting and stopping the watcher automatically, and offering one-click snapshot updates. 
+If you use [Visual Studio Code](https://code.visualstudio.com), there is a [Jest extension](https://github.com/orta/vscode-jest) which works with Create React App out of the box. This provides a lot of IDE-like features while using a text editor: showing the status of a test run with potential fail messages inline, starting and stopping the watcher automatically, and offering one-click snapshot updates.
 
 ![VS Code Jest Preview](https://cloud.githubusercontent.com/assets/49038/20795349/a032308a-b7c8-11e6-9b34-7eeac781003f.png)
 

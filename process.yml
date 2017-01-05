@@ -1,0 +1,8 @@
+#Configuration to startup production server with pm2
+
+apps:
+  - script   : server
+    exec_mode: fork
+    watch  : true
+    env    :
+      NODE_ENV: production
