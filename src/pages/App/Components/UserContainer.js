@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import '../style.css'
-import Person from './Person'
+import User from './User'
 
-export default class PeopleContainer extends Component {
+export default class UserContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {users: []};
@@ -21,7 +21,7 @@ export default class PeopleContainer extends Component {
 		return (
 			<div>
 				{this.state.users.map((user) => (
-					<Person key={user.name} name={user.name} desc={user.desc} />
+					<User key={user._id} name={user.name} desc={user.desc} />
 				))}
 			</div>
 		);

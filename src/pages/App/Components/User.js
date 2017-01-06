@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import '../style.css'
 
-export default class Person extends Component {
+export default class User extends Component {
 	render() {
 		return (
-			<div className="person">
+			<div className="user">
 				<p className="name">{this.props.name}</p>
 				<p>{this.props.desc}</p>
 			</div>

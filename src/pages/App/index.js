@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './style.css';
-import PeopleContainer from './Components/PeopleContainer'
+import UserContainer from './Components/UserContainer'
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         <p className="App-intro">
           Here is a list of people:
         </p>
-        <PeopleContainer />
+        <UserContainer />
       </div>
     );
   }
