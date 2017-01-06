@@ -53,7 +53,21 @@ There is also a production environment, which builds everything nicely with webp
 
 All the webpack/babel and other build stuff is conveniently handled in the background by react-scripts (a dev dependency). If you want to actually modify the config for that stuff (I sure don't), then run `npm run eject`. Note that once you run this, there's no going back.
 
+## Resources
+**Here is some documentation and tutorials I used to help make this.**
+
+Wonderful tutorial on developing a RESTful API with Express/MongoDB. This is the basis of my API system. It'll also show you how mongoose works for managing MongoDB. https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+
+Great tutorial on the react router. This is the bases of the page/routing system here.
+https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d#.9tzzst6a0
+
+I found the official documentation for these tools to be quite useful:
+- Mongoose: http://mongoosejs.com/docs/guide.html
+- Express: http://expressjs.com/en/guide/routing.html
+- PM2: http://pm2.keymetrics.io/docs/usage/cluster-mode/
+
 The rest is the built-in documentation for the create-react-app which this project is based on:
+Note that a lot of the features noted in this documentation have been broken by me overhauling the default react app.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
