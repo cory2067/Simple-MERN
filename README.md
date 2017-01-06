@@ -2,29 +2,28 @@ A simple MERN stack template built with create-react-app
 
 ## File Structure
 - public
-    - index.html
+    - index.html: A basic index.html page. React injects components into the "root" div as defined by `src/index.js`
 - server
-    - api.js
-    - index.js
-- src
-    - pages
-        - About
+    - index.js: The main code for the server. This sets up all the routing, such that anything starting with `/api` is directed to the api router in `api.js` and everything else is directed to the react router, located in `src/index.js`    
+    - api.js: Controls the routing/responses of the api. This involves making calls to MongoDB to retrieve user data.
+- src: Client-side source code
+    - index.js: Determines what content should be loaded into the main `public/index.html`. The react router, depending on the URL, will either inject `pages/About`, `pages/App`, or `pages/NotFound`.
+    - index.css: Contains the main stylesheet to be applied to the entire webapp
+    - pages: Contains pages that are rendered based on the routing in `src/index.js`
+        - About: Simple about page
+            - index.js: A react component representing the whole page
+            - style.css: A stylesheet only applied to this page
+        - App: Homepage, which displays a grid of users
+            - Components: Components used by App
+                - UserContainer.js: Div which calls the api for user data, and then creates `<User>` objects accordingly.
+                - User.js: Child of UserContainer which stores the information for a single user
+            - index.js: A react component representing the whole page
+            - style.css: A stylesheet only applied to this page
+        - NotFound: 404 page
             - index.js
             - style.css
-        - App
-            - Components
-                - User.js
-                - UserContainer.js
-            - index.js
-            - style.css
-        - NotFound
-            - index.js
-            - style.css
-    - index.css
-    - index.js
-    - routes.js
 - package.json
-- process.yml
+- process.yml: Config file used by pm2 to launch node in production
 
 ## Running
 To use this, I recommend having the following packages globally installed:
