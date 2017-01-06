@@ -1,5 +1,32 @@
-My custom notes on this:
+A simple MERN stack template built with create-react-app
 
+## File Structure
+- public
+    - index.html
+- server
+    - api.js
+    - index.js
+- src
+    - pages
+        - About
+            - index.js
+            - style.css
+        - App
+            - Components
+                - User.js
+                - UserContainer.js
+            - index.js
+            - style.css
+        - NotFound
+            - index.js
+            - style.css
+    - index.css
+    - index.js
+    - routes.js
+- package.json
+- process.yml
+
+## Running
 To use this, I recommend having the following packages globally installed:
 - `npm install nodemon -g` (used for running the development environment)
 - `npm install pm2 -g` (used for running the production environment)
