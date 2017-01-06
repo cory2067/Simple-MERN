@@ -1,29 +1,44 @@
 A simple MERN stack template built with create-react-app
 
+## The General Idea
+This is a template based off of `create-react-app`, which is a tool that generates a basic, functional react webapp. This tool is pretty neat, because it uses the `react-scripts` dependency to manage building the app for you. This means that this app uses Webpack, Babel, and all that other stuff, but it is all done in the background by `react-scripts`, so the developer doesn't need to bother dealing with it. All of that messy stuff is handled in a single command.
+
+This `create-react-app` thing is pretty dank, but it is only a react webapp, without a real Node/Express server or a database. As such, I decided to integrate those missing components myself to create a fullstack application (MERN).
+
+I decided to structure this in two main components.
+
+One, the react webapp. This is the main js that displays the page, and comprises the whole `src` directory. You can find that `create-react-app` only creates a single page application, and some additional structure is needed to add multiple pages. I've done that by using the react router. Under `src/index.js`, you can find that react will route to one of the page components found in `src/pages` depending on the URL. Then, this script tells the ReactDOM to inject the result into `public/index.html`.
+
+Two, there is the database REST API. Whenever a URL comes in that starts with `/api`, the request is routed to be handled in `server/api.js` by Express. (All other URLs are sent to the react router in `src/index.html`). This api script connects to the MongoDB database and, depending on the request, makes calls to the database and returns the appropriate response. *Currently, the api only retrieves all the records in the database. I may finish this to be a complete CRUD api*
+
+Then, these two components can interact each other, which you can see in places such as `src/pages/App/Components/UserContainer.js`. The UserContainer on the main page sends a request to the API to fetch all the users. The API returns these users as a JSON object which gets inserted into User components, which are the boxes you see on the main page of the site.
+
+Putting it all together, we can look at the file structure of this template.
+
 ## File Structure
-- public
-    - index.html: A basic index.html page. React injects components into the "root" div as defined by `src/index.js`
-- server
-    - index.js: The main code for the server. This sets up all the routing, such that anything starting with `/api` is directed to the api router in `api.js` and everything else is directed to the react router, located in `src/index.js`    
-    - api.js: Controls the routing/responses of the api. This involves making calls to MongoDB to retrieve user data.
-- src: Client-side source code
-    - index.js: Determines what content should be loaded into the main `public/index.html`. The react router, depending on the URL, will either inject `pages/About`, `pages/App`, or `pages/NotFound`.
-    - index.css: Contains the main stylesheet to be applied to the entire webapp
-    - pages: Contains pages that are rendered based on the routing in `src/index.js`
-        - About: Simple about page
-            - index.js: A react component representing the whole page
-            - style.css: A stylesheet only applied to this page
-        - App: Homepage, which displays a grid of users
-            - Components: Components used by App
-                - UserContainer.js: Div which calls the api for user data, and then creates `<User>` objects accordingly.
-                - User.js: Child of UserContainer which stores the information for a single user
-            - index.js: A react component representing the whole page
-            - style.css: A stylesheet only applied to this page
-        - NotFound: 404 page
-            - index.js
-            - style.css
-- package.json
-- process.yml: Config file used by pm2 to launch node in production
+- **public**
+    - **index.html:** A basic index.html page. React injects components into the "root" div as defined by `src/index.js`
+- **server**
+    - **index.js:** The main code for the server. This sets up all the routing, such that anything starting with `/api` is directed to the api router in `api.js` and everything else is directed to the react router, located in `src/index.js`    
+    - **api.js:** Controls the routing/responses of the api. This involves making calls to MongoDB to retrieve user data.
+- **src:** Client-side source code
+    - **index.js:** Determines what content should be loaded into the main `public/index.html`. The react router, depending on the URL, will either inject `pages/About`, `pages/App`, or `pages/NotFound`.
+    - **index.css:** Contains the main stylesheet to be applied to the entire webapp
+    - **pages:** Contains pages that are rendered based on the routing in `src/index.js`
+        - **About:** Simple about page
+            - **index.js:** A react component representing the whole page
+            - **style.css:** A stylesheet only applied to this page
+        - **App:** Homepage, which displays a grid of users
+            - **Components:** Components used by App
+                - **UserContainer.js:** Div which calls the api for user data, and then creates `<User>` objects accordingly.
+                - **User.js:** Child of UserContainer which stores the information for a single user
+            - **index.js:** A react component representing the whole page
+            - **style.css:** A stylesheet only applied to this page
+        - **NotFound:** 404 page
+            - **index.js**
+            - **style.css**
+- **package.json**
+- **process.yml:** Config file used by pm2 to launch node in production
 
 ## Running
 To use this, I recommend having the following packages globally installed:
